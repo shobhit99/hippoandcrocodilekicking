@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Just a hippo and crocodile kicking gif</title>
+<meta name="description" content="Just a hippo and crocodile kicking gif. That's the whole website.">
+
+<link rel="canonical" href="https://shobhit99.github.io/hippoandcrocodilekicking/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://shobhit99.github.io/hippoandcrocodilekicking/">
+<meta property="og:title" content="Just a hippo and crocodile kicking gif">
+<meta property="og:description" content="That's the whole website.">
+<!-- Animated gif first: apps that animate previews (Discord, Slack, iMessage, Telegram) use it. -->
+<meta property="og:image" content="https://shobhit99.github.io/hippoandcrocodilekicking/hippo-croc-kicking.gif">
+<meta property="og:image:type" content="image/gif">
+<meta property="og:image:width" content="418">
+<meta property="og:image:height" content="400">
+<meta property="og:image:alt" content="A hippo and a crocodile standing upright on a street, kicking">
+<!-- Static fallback for apps that only take still images. -->
+<meta property="og:image" content="https://shobhit99.github.io/hippoandcrocodilekicking/og.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Just a hippo and crocodile kicking gif">
+<meta name="twitter:description" content="That's the whole website.">
+<meta name="twitter:image" content="https://shobhit99.github.io/hippoandcrocodilekicking/og.jpg">
+
+<link rel="icon" type="image/png" href="icon.png">
+<link rel="apple-touch-icon" href="icon.png">
+<meta name="theme-color" content="#e9e2cf">
+
+<style>
+  :root {
+    --bg: #e9e2cf;        /* sunlit concrete */
+    --ink: #1d1b16;
+    --muted: #6b6555;
+    --crate: #1f4fd8;     /* the blue crates */
+    --crate-ink: #ffffff;
+    --card: #fbf8ef;
+    --line: #1d1b16;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #17160f;
+      --ink: #f2ecda;
+      --muted: #a39c88;
+      --crate: #4f7bff;
+      --crate-ink: #0b1020;
+      --card: #211f17;
+      --line: #f2ecda;
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { height: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: ui-rounded, "SF Pro Rounded", "Segoe UI", system-ui, sans-serif;
+    display: grid;
+    place-items: center;
+    padding: 24px 16px;
+  }
+  main {
+    width: 100%;
+    max-width: 460px;
+    text-align: center;
+  }
+  .frame {
+    background: var(--card);
+    border: 3px solid var(--line);
+    border-radius: 22px;
+    padding: 10px;
+    box-shadow: 8px 8px 0 var(--line);
+    transform: rotate(-1.5deg);
+  }
+  .frame img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 418 / 400;
+    border-radius: 13px;
+    background: #8d8a78;
+  }
+  h1 {
+    margin: 36px 0 24px;
+    font-size: clamp(1.5rem, 6.4vw, 2.1rem);
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+  }
+  .actions {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  button {
+    font: inherit;
+    font-weight: 700;
+    font-size: 1rem;
+    min-width: 140px;
+    padding: 13px 22px;
+    border: 3px solid var(--line);
+    border-radius: 999px;
+    background: var(--card);
+    color: var(--ink);
+    box-shadow: 4px 4px 0 var(--line);
+    cursor: pointer;
+    transition: transform .08s ease, box-shadow .08s ease;
+  }
+  button.primary { background: var(--crate); color: var(--crate-ink); }
+  button:hover { transform: translate(-1px, -1px); box-shadow: 5px 5px 0 var(--line); }
+  button:active { transform: translate(3px, 3px); box-shadow: 1px 1px 0 var(--line); }
+  button:focus-visible { outline: 3px solid var(--crate); outline-offset: 3px; }
+  .status {
+    min-height: 1.4em;
+    margin: 18px 0 0;
+    color: var(--muted);
+    font-size: .9rem;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    button { transition: none; }
+  }
+</style>
+</head>
+<body>
+<main>
+  <div class="frame">
+    <img src="hippo-croc-kicking.gif" width="418" height="400"
+         alt="A hippo and a crocodile standing upright on a street, kicking">
+  </div>
+
+  <h1>Just a hippo and crocodile kicking gif</h1>
+
+  <div class="actions">
+    <button id="copy" type="button">Copy link</button>
+    <button id="share" type="button" class="primary">Share</button>
+  </div>
+  <p class="status" id="status" role="status" aria-live="polite"></p>
+</main>
+
+<script>
+  const TITLE = 'Just a hippo and crocodile kicking gif';
+  const url = location.href.split('#')[0];
+  const copyBtn = document.getElementById('copy');
+  const shareBtn = document.getElementById('share');
+  const status = document.getElementById('status');
+  let timer;
+
+  function say(msg) {
+    status.textContent = msg;
+    clearTimeout(timer);
+    timer = setTimeout(() => { status.textContent = ''; }, 2500);
+  }
+
+  async function copyLink() {
+    try {
+      await navigator.clipboard.writeText(url);
+      return true;
+    } catch {
+      // Fallback for older browsers and non-secure contexts
+      const ta = document.createElement('textarea');
+      ta.value = url;
+      ta.setAttribute('readonly', '');
+      ta.style.position = 'fixed';
+      ta.style.opacity = '0';
+      document.body.appendChild(ta);
+      ta.select();
+      let ok = false;
+      try { ok = document.execCommand('copy'); } catch {}
+      ta.remove();
+      return ok;
+    }
+  }
+
+  copyBtn.addEventListener('click', async () => {
+    say(await copyLink() ? 'Link copied.' : 'Could not copy. Copy it from the address bar.');
+  });
+
+  shareBtn.addEventListener('click', async () => {
+    if (navigator.share) {
+      try {
+        await navigator.share({ title: TITLE, text: TITLE, url });
+      } catch (err) {
+        if (err.name !== 'AbortError') say('Sharing failed.');
+      }
+      return;
+    }
+    // No native share sheet (most desktop browsers): copy the link instead
+    say(await copyLink() ? 'No share menu here, so the link was copied instead.' : 'Could not share. Copy the link from the address bar.');
+  });
+</script>
+</body>
+</html>
